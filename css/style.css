@@ -1,0 +1,255 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #141310;
+  --surface: #232019;
+  --accent: #F0B84C;
+  --accent-muted: #C99A3E;
+  --text: #E8DFC8;
+  --text-muted: #9C9184;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#ascii-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.site-header {
+  position: fixed;
+  top: 9px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background: transparent;
+  backdrop-filter: none;
+  font-size: 0.85rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.header-tagline {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-right .social-links {
+  gap: 0.75rem;
+}
+
+.header-right .social-links a {
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-right .social-links a:hover {
+  color: var(--accent-muted);
+}
+
+.header-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(35, 32, 25, 0.75);
+  border: 1px solid rgba(156, 145, 132, 0.2);
+  border-radius: 999px;
+  padding: 0.3rem 0.4rem;
+}
+
+.header-nav a {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.header-nav a:hover {
+  color: var(--text);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.hero-wordmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -54%);
+  z-index: 3;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: clamp(5rem, 14vw, 12rem);
+  color: var(--accent);
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  pointer-events: auto;
+  user-select: none;
+  opacity: 0;
+  text-shadow: 0 0 50px rgba(20, 19, 16, 0.9), 0 4px 12px rgba(0, 0, 0, 0.95);
+  transition: filter 0.4s ease;
+}
+
+.hero-wordmark:hover {
+  filter: blur(2px);
+}
+
+.hero-quote {
+  position: absolute;
+  bottom: 220px;
+  left: 155px;
+  max-width: 340px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.80rem;
+  color: var(--accent);
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero-wordmark:hover ~ .hero-quote {
+  opacity: 1;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 2.2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-muted);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--text-muted);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.social-links a {
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+}
+
+.site-footer {
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--surface);
+}
+
+.site-footer a {
+  color: var(--accent-muted);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+#about, #experience, #projects {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+}
