@@ -1,0 +1,82 @@
+.site-header {
+  position: fixed;
+  top: 9px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background: transparent;
+  backdrop-filter: none;
+  font-size: 0.85rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.header-tagline {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-right .social-links {
+  gap: 0.75rem;
+}
+
+.header-right .social-links a {
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-right .social-links a:hover {
+  color: var(--accent-muted);
+}
+
+.header-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(35, 32, 25, 0.75);
+  border: 1px solid rgba(156, 145, 132, 0.2);
+  border-radius: 999px;
+  padding: 0.3rem 0.4rem;
+}
+
+.header-nav a {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.header-nav a:hover {
+  color: var(--text);
+  background-color: rgba(255, 255, 255, 0.05);
+}
