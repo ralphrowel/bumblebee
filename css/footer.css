@@ -1,4 +1,6 @@
 .site-footer {
+  position: relative;
+  z-index: 1;
   padding: 1rem 2rem;
   text-align: center;
   font-size: 0.75rem;

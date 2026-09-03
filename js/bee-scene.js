@@ -40,7 +40,8 @@ effect.domElement.style.width = '100%';
 effect.domElement.style.height = '100%';
 effect.domElement.style.pointerEvents = 'none';
 effect.domElement.style.zIndex = '2';
-sceneLayer.appendChild(effect.domElement);
+const beeStage = document.getElementById('bee-stage') || sceneLayer;
+beeStage.appendChild(effect.domElement);
 
 effect.domElement.style.willChange = 'filter, mask-image, -webkit-mask-image';
 
@@ -62,10 +63,7 @@ loader.load('assets/models/bee.glb', (gltf) => {
     mixer = new THREE.AnimationMixer(model);
     const action = mixer.clipAction(gltf.animations[0]);
     mixer.timeScale = 0.05;
-    console.log('mixer.timeScale:', mixer.timeScale);
     action.play();
-    mixer.timeScale = 0.05;
-    console.log('mixer.timeScale after play():', mixer.timeScale);
   }
 
   if (window.__hideLoadingScreen) window.__hideLoadingScreen();
@@ -108,8 +106,8 @@ function animate() {
   const scrollP = window.__beeScrollProgress || 0;
   camera.position.set(
     camCurrent.x,
-    camCurrent.y - scrollP * 3.5,
-    BASE_CAM.z + scrollP * 1.8
+    camCurrent.y - scrollP * 2,
+    BASE_CAM.z + scrollP * 1
   );
   camera.lookAt(0, 0, 0);
 

@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ralph Rowel Dela Rosa — Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Ralph Rowel Dela Rosa — AI engineer, ML engineer, and data analytics enthusiast. Backend, data, and a capstone published in IJRSI.">
+  <meta name="author" content="Ralph Rowel Dela Rosa">
+  <meta name="theme-color" content="#141310">
+  <meta property="og:title" content="Ralph Rowel Dela Rosa — Portfolio">
+  <meta property="og:description"
+    content="AI engineer, ML engineer, and data analytics enthusiast. Backend, data, and a capstone published in IJRSI.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/blckwhite-removebg-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ralph Rowel Dela Rosa — Portfolio">
+  <meta name="twitter:description" content="AI engineer, ML engineer, and data analytics enthusiast.">
+  <meta name="twitter:image" content="assets/blckwhite-removebg-preview.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/why-bumblebee.css">
   <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/experience.css">
+  <link rel="stylesheet" href="css/projects.css">
   <link rel="stylesheet" href="css/footer.css">
   <script type="importmap">
   {
@@ -21,12 +41,13 @@
   }
   </script>
 </head>
+
 <body>
 
   <div id="loading-screen">
     <div class="loading-inner">
       <svg class="hex-spinner" width="52" height="60" viewBox="-17.32 -20 34.64 40" aria-hidden="true">
-        <path d="M0 -20 17.32 -10 17.32 10 0 20 -17.32 10 -17.32 -10Z"/>
+        <path d="M0 -20 17.32 -10 17.32 10 0 20 -17.32 10 -17.32 -10Z" />
       </svg>
       <span class="loading-word">BUMBLEBEE</span>
     </div>
@@ -46,8 +67,9 @@
   </script>
 
   <div class="scene-layer">
-    <canvas id="ascii-bg"></canvas>
-    <canvas id="bee-canvas"></canvas>
+    <div id="bee-stage">
+      <canvas id="bee-canvas"></canvas>
+    </div>
   </div>
 
   <header class="site-header">
@@ -63,32 +85,63 @@
     <div class="header-right">
       <div class="social-links">
         <a href="#" aria-label="GitHub">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z" />
+          </svg>
         </a>
         <a href="#" aria-label="LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
         </a>
       </div>
     </div>
   </header>
 
   <section id="hero">
-    <h1 class="hero-wordmark" data-text="BUMBLEBEE">BUMBLEBEE</h1>
-    <p class="hero-quote">"According to all aerodynamic laws, the bumblebee cannot fly because its body weight is not in the right proportion to its wingspan. But ignoring these laws, the bee flies anyway." -Peter Dinklage</p>
+    <div class="hero-wordmark-wrap">
+      <h1 class="hero-wordmark">BUMBLEBEE</h1>
+    </div>
+  </section>
+
+  <section id="why-bumblebee">
+    <div class="why-inner">
+      <div class="why-quote-block">
+        <span class="why-quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="why-quote">
+          According to all aerodynamic laws, the <span class="why-highlight">bumblebee</span> cannot fly because its body weight is not in the right proportion to its wingspan. But ignoring these laws, the bee flies anyway.
+        </blockquote>
+        <div class="why-attribution">
+          <div class="why-photo-hex">
+            <img class="why-photo" src="assets/peterdinklage.jfif" alt="Peter Dinklage">
+          </div>
+          <cite class="why-cite">&mdash; Peter Dinklage</cite>
+        </div>
+      </div>
+      <div class="why-divider"></div>
+      <p class="why-story">
+        That's why I chose the bumblebee. It's a reminder that limits only exist if you accept them. As someone who
+        transitioned from IT support to AI and machine learning, I've had my share of "you can't fly" moments. But like
+        the bee, I chose to fly anyway.
+      </p>
+    </div>
   </section>
 
   <section id="about">
     <div class="about-content">
       <div class="about-heading">
         <div class="rule-full"></div>
-        <p class="about-label">About Me</p>
+        <p class="about-label">ABOUT ME</p>
         <div class="rule-full"></div>
       </div>
 
       <div class="about-layout">
         <article class="about-profile about-panel">
           <h2 class="about-title">Ralph Rowel</h2>
-          <p class="about-bio">IT graduate turned AI/ML enthusiast. Backend, data analytics, and IT support experience led me to AI and machine learning, sealed by a capstone published in IJRSI.</p>
+          <p class="about-bio">IT graduate turned AI/ML enthusiast. Backend, data analytics, and IT support experience
+            led me to AI and machine learning, sealed by a capstone published in IJRSI.</p>
           <div class="rule-partial"></div>
           <ul class="skill-badges">
             <li class="badge">Python</li>
@@ -106,9 +159,18 @@
             <li class="badge">RESTful API</li>
           </ul>
           <div class="cert-stack" aria-label="Certificates">
-            <img class="cert-img" src="assets/certificates/certificateofpublication.jpg" alt="International Journal of Research and Scientific Innovation certificate of publication">
-            <img class="cert-img" src="assets/certificates/ciscoawardcert.jfif" alt="Cisco Networking Academy certificate of appreciation">
-            <img class="cert-img" src="assets/certificates/winservercertificate.png" alt="Windows Server 2016 Fundamentals certificate of participation">
+            <button type="button" class="cert-btn">
+              <img class="cert-img" src="assets/certificates/certificateofpublication.jpg"
+                alt="International Journal of Research and Scientific Innovation certificate of publication">
+            </button>
+            <button type="button" class="cert-btn">
+              <img class="cert-img" src="assets/certificates/ciscoawardcert.jfif"
+                alt="Cisco Networking Academy certificate of appreciation">
+            </button>
+            <button type="button" class="cert-btn">
+              <img class="cert-img" src="assets/certificates/winservercertificate.png"
+                alt="Windows Server 2016 Fundamentals certificate of participation">
+            </button>
           </div>
         </article>
 
@@ -119,13 +181,85 @@
     </div>
   </section>
 
-  <div id="cert-lightbox" aria-hidden="true">
-    <img id="lightbox-img" alt="">
-    <button id="lightbox-close" type="button">Close</button>
+  <div id="cert-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Certificate preview">
+    <div class="lightbox-dialog">
+      <img id="lightbox-img" alt="">
+      <button id="lightbox-close" type="button">Close</button>
+    </div>
   </div>
 
+  <div class="experience-backdrop" aria-hidden="true"></div>
+
   <section id="experience">
-    <p>Experiences Section</p>
+    <div class="experience-content">
+      <div class="experience-heading">
+        <div class="rule-full"></div>
+        <p class="about-label">EXPERIENCES</p>
+        <div class="rule-full"></div>
+      </div>
+
+      <div class="experience-container">
+        <!-- Professional Experience -->
+        <div class="experience-group">
+          <h3 class="experience-subheading">Professional Experience</h3>
+          <div class="exp-card exp-card-featured">
+            <div class="exp-card-header">
+              <div class="exp-title-row">
+                <h4 class="exp-role">Arko &mdash; Co-Founder, Developer, Software Studio</h4>
+                <span class="exp-period">2025 &ndash; Present</span>
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>One of 4 founding members building web, mobile, and automation/AI products for real clients</li>
+              <li>Focused on backend systems, data workflows, and integrating AI features into client products</li>
+              <li>Full-cycle involvement: discovery, build, and handover &mdash; no account-manager layer between us and the client</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Internship Experience -->
+        <div class="experience-group">
+          <h3 class="experience-subheading">Internship Experience</h3>
+          <div class="internship-grid">
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <h4 class="exp-role">Backend Developer Intern</h4>
+                <p class="exp-company">Hiraya Technology Solutions</p>
+              </div>
+              <ul class="exp-bullets">
+                <li>Designed and maintained secure RESTful APIs.</li>
+                <li>Optimized database queries for improved performance.</li>
+                <li>Developed scalable backend solutions using modern software engineering practices.</li>
+              </ul>
+            </div>
+
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <h4 class="exp-role">Data Analyst Intern</h4>
+                <p class="exp-company">Hiraya Technology Solutions</p>
+              </div>
+              <ul class="exp-bullets">
+                <li>Performed data analysis using Python, SQL, and Jupyter Notebook.</li>
+                <li>Created visualizations and reports to support decision-making.</li>
+                <li>Managed and validated large datasets to ensure accuracy.</li>
+              </ul>
+            </div>
+
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <h4 class="exp-role">Service Desk &amp; Field Support Intern</h4>
+                <p class="exp-company">Deutsche Business Solutions</p>
+              </div>
+              <ul class="exp-bullets">
+                <li>Assisted technical support operations.</li>
+                <li>Observed remote troubleshooting procedures.</li>
+                <li>Worked with ServiceNow and enterprise support tools.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="projects">
@@ -134,7 +268,8 @@
 
   <footer class="site-footer">
     <p class="model-credit">
-      "Bumblebee" by <a href="https://skfb.ly/pvDuq" target="_blank" rel="noopener">butterflybliss</a>, licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
+      "Bumblebee" by <a href="https://skfb.ly/pvDuq" target="_blank" rel="noopener">butterflybliss</a>, licensed under
+      <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
     </p>
   </footer>
 
@@ -142,7 +277,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/honeycomb-hover.js"></script>
-  <script src="js/ascii-bg.js"></script>
   <script type="module" src="js/bee-scene.js"></script>
 </body>
+
 </html>

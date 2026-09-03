@@ -1,9 +1,231 @@
 #experience {
-  height: 100vh;
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 7rem 0 6rem;
+  overflow: visible;
+}
+
+.experience-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.experience-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.experience-container {
+  width: 100%;
+  padding: 0 clamp(1.25rem, 4vw, 4rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 5vw, 4.5rem);
+}
+
+.experience-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-subheading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.5vw, 2.1rem);
+  color: var(--accent);
+  text-align: left;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  text-transform: none;
+}
+
+/* ─── Experience Cards ─── */
+
+.exp-card {
+  position: relative;
+  background-color: rgba(28, 30, 34, 0.78);
+  border: 1px solid rgba(150, 155, 165, 0.18);
+  border-radius: 4px;
+  padding: clamp(1.5rem, 2.8vw, 2.25rem);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-card:hover {
+  background-color: rgba(34, 36, 42, 0.88);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(240, 184, 76, 0.12);
+}
+
+.exp-card-header {
+  margin-bottom: 1.25rem;
+}
+
+.exp-title-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.exp-role {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.25;
+  display: inline-block;
+  background: linear-gradient(
+    105deg,
+    #E8DFC8 0%,
+    #E8DFC8 35%,
+    #FFF4B8 47%,
+    #F0B84C 52%,
+    #FFF4B8 57%,
+    #E8DFC8 68%,
+    #E8DFC8 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: yellow-shine 3.8s ease-in-out infinite;
+}
+
+.internship-grid .exp-card:nth-child(1) .exp-role {
+  animation-delay: 0.3s;
+}
+
+.internship-grid .exp-card:nth-child(2) .exp-role {
+  animation-delay: 0.6s;
+}
+
+.internship-grid .exp-card:nth-child(3) .exp-role {
+  animation-delay: 0.9s;
+}
+
+@keyframes yellow-shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
+}
+
+.exp-company {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin-top: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.exp-period {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--accent);
+  background-color: rgba(240, 184, 76, 0.1);
+  border: 1px solid rgba(240, 184, 76, 0.3);
+  padding: 0.3rem 0.85rem;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* ─── Bullets ─── */
+
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.exp-bullets li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: clamp(0.9rem, 1.2vw, 0.98rem);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.exp-bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ─── Internship 3-Column Grid ─── */
+
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2vw, 2rem);
+  width: 100%;
+}
+
+.internship-grid .exp-card {
+  height: 100%;
+  justify-content: flex-start;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 1024px) {
+  .internship-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  #experience {
+    padding: 5rem 0 4rem;
+  }
+
+  .experience-container {
+    padding: 0 1.25rem;
+    gap: 2.5rem;
+  }
+
+  .internship-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .exp-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Kept for GSAP compatibility — no longer used visually */
+.experience-backdrop {
+  display: none;
 }
