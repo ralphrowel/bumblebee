@@ -27,11 +27,8 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/why-bumblebee.css">
-  <link rel="stylesheet" href="css/about.css">
-  <link rel="stylesheet" href="css/experience.css">
-  <link rel="stylesheet" href="css/projects.css">
-  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/hex-menu.css">
+  <link rel="stylesheet" href="css/hive.css">
   <script type="importmap">
   {
     "imports": {
@@ -44,6 +41,7 @@
 
 <body>
 
+  <!-- ===================== LOADING SCREEN ===================== -->
   <div id="loading-screen">
     <div class="loading-inner">
       <svg class="hex-spinner" width="52" height="60" viewBox="-17.32 -20 34.64 40" aria-hidden="true">
@@ -66,31 +64,42 @@
     })();
   </script>
 
-  <div class="scene-layer">
+  <!-- ===================== BEE ASCII SCENE ===================== -->
+  <div class="scene-layer" aria-hidden="true">
     <div id="bee-stage">
       <canvas id="bee-canvas"></canvas>
     </div>
   </div>
 
+  <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="header-left">
-      <span class="header-name">Ralph Rowel Dela Rosa</span>
       <span class="header-tagline">AI Engineer &middot; ML Engineer &middot; Data Analytics Enthusiast</span>
     </div>
-    <nav class="header-nav">
-      <a href="#about">About Me</a>
-      <a href="#experience">Experiences</a>
-      <a href="#projects">Projects</a>
-    </nav>
+
+    <!-- Name centered absolutely -->
+    <div class="header-center">
+      <span class="header-name">Ralph Rowel Dela Rosa</span>
+    </div>
+
     <div class="header-right">
+      <!-- Home button — shown when hex menu or panel is open -->
+      <button id="home-btn" type="button" aria-label="Back to home">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>Home</span>
+      </button>
       <div class="social-links">
-        <a href="#" aria-label="GitHub">
+        <a href="https://github.com/ralphrowel" target="_blank" rel="noopener" aria-label="GitHub">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z" />
           </svg>
         </a>
-        <a href="#" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/ralphrowel" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -100,88 +109,305 @@
     </div>
   </header>
 
+  <!-- ===================== HERO ===================== -->
   <section id="hero">
+    <!-- BUMBLEBEE wordmark -->
     <div class="hero-wordmark-wrap">
       <h1 class="hero-wordmark">BUMBLEBEE</h1>
     </div>
+
+    <blockquote class="hero-corner-quote">
+      <p>&ldquo;But ignoring these laws, the bee flies anyway.&rdquo;</p>
+      <cite>&mdash; Peter Dinklage</cite>
+    </blockquote>
+
+    <!-- START / ENTER button -->
+    <button id="start-btn" type="button" aria-label="Enter portfolio">
+      <span class="start-btn-text">EXPLORE THE HIVE</span>
+    </button>
   </section>
 
-  <section id="why-bumblebee">
-    <div class="why-inner">
-      <div class="why-quote-block">
-        <span class="why-quote-mark" aria-hidden="true">&ldquo;</span>
-        <blockquote class="why-quote">
-          According to all aerodynamic laws, the <span class="why-highlight">bumblebee</span> cannot fly because its
-          body weight is not in the right proportion to its wingspan. But ignoring these laws, the bee flies anyway.
-        </blockquote>
-        <div class="why-attribution">
-          <div class="why-photo-hex">
-            <img class="why-photo" src="assets/peterdinklage.jfif" alt="Peter Dinklage">
+  <!-- ===================== HEX MENU ===================== -->
+  <div id="hex-menu" aria-hidden="true" role="navigation" aria-label="Portfolio sections">
+    <div class="menu-heading"><span class="hive-eyebrow">A LITTLE CURIOSITY GOES A LONG WAY</span><h2>Explore the hive.</h2><p>Six cells. One curious mind. Pick a place to land.</p></div><p class="menu-footnote">BUILT WITH PURPOSE. &nbsp; WIRED TO EXPLORE.</p>
+    <!-- Centre decorative hex -->
+    <div class="hex-node hex-centre" data-hex="centre" aria-hidden="true">
+      <svg class="hex-bee-icon" viewBox="0 0 40 46" fill="none" aria-hidden="true">
+        <polygon points="20,2 38,12 38,34 20,44 2,34 2,12" stroke="#F0B84C" stroke-width="1.5" fill="none" />
+        <text x="20" y="29" text-anchor="middle" font-size="18" fill="#F0B84C">🐝</text>
+      </svg>
+    </div>
+
+    <!-- Ring hexes -->
+    <button class="hex-node hex-ring" id="hex-about" data-section="about" aria-label="About Me">
+      <span class="hex-icon" aria-hidden="true">👤</span>
+      <span class="hex-label">About Me</span><span class="hex-number">01 / EXPLORE</span>
+      <span class="hex-glow" aria-hidden="true"></span>
+    </button>
+
+    <button class="hex-node hex-ring" id="hex-skills" data-section="skills" aria-label="Skills">
+      <span class="hex-icon" aria-hidden="true">⚡</span>
+      <span class="hex-label">Skills</span><span class="hex-number">02 / EXPLORE</span>
+      <span class="hex-glow" aria-hidden="true"></span>
+    </button>
+
+    <button class="hex-node hex-ring" id="hex-experience" data-section="experience" aria-label="Experience">
+      <span class="hex-icon" aria-hidden="true">🏢</span>
+      <span class="hex-label">Experience</span><span class="hex-number">03 / EXPLORE</span>
+      <span class="hex-glow" aria-hidden="true"></span>
+    </button>
+
+    <button class="hex-node hex-ring" id="hex-projects" data-section="projects" aria-label="Projects">
+      <span class="hex-icon" aria-hidden="true">🚀</span>
+      <span class="hex-label">Projects</span><span class="hex-number">04 / EXPLORE</span>
+      <span class="hex-glow" aria-hidden="true"></span>
+    </button>
+
+    <button class="hex-node hex-ring" id="hex-publications" data-section="publications" aria-label="Publications">
+      <span class="hex-icon" aria-hidden="true">📄</span>
+      <span class="hex-label">Publications</span><span class="hex-number">05 / EXPLORE</span>
+      <span class="hex-glow" aria-hidden="true"></span>
+    </button>
+
+    <button class="hex-node hex-ring" id="hex-contact" data-section="contact" aria-label="Contact">
+      <span class="hex-icon" aria-hidden="true">✉️</span>
+      <span class="hex-label">Contact</span><span class="hex-number">06 / EXPLORE</span>
+      <span class="hex-glow" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- ===================== SECTION PANEL ===================== -->
+  <div id="section-panel" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Section content">
+    <button id="panel-back-btn" type="button" aria-label="Back to menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      <span>Back</span>
+    </button>
+    <div id="panel-content"></div>
+  </div>
+
+  <!-- ===================== SECTION CONTENT TEMPLATES ===================== -->
+
+  <!-- About Me -->
+  <template id="tpl-about">
+    <section class="panel-section" id="panel-about">
+      <p class="hive-eyebrow">01 / THE BEE BEHIND THE WORK</p><h2 class="panel-title">About Me</h2><p class="section-deck">A curious mind. A builder at heart.</p>
+      <div class="panel-about-layout">
+        <div class="panel-about-text">
+          <p class="panel-bio">
+            IT graduate turned AI/ML enthusiast. Backend, data analytics, and IT support experience
+            led me to AI and machine learning, sealed by a capstone published in IJRSI.
+          </p>
+          <div class="panel-divider"></div>
+          <div class="panel-photo-wrap">
+            <img class="panel-portrait" src="assets/blckwhite-removebg-preview.png" alt="Ralph Rowel Dela Rosa portrait">
           </div>
-          <cite class="why-cite">&mdash; Peter Dinklage</cite>
+          <div class="panel-certs">
+            <h3 class="panel-sub">Certificates</h3>
+            <div class="panel-cert-grid">
+              <button type="button" class="panel-cert-btn">
+                <img src="assets/certificates/certificateofpublication.jpg"
+                  alt="International Journal of Research and Scientific Innovation — certificate of publication">
+              </button>
+              <button type="button" class="panel-cert-btn">
+                <img src="assets/certificates/ciscoawardcert.jfif"
+                  alt="Cisco Networking Academy — certificate of appreciation">
+              </button>
+              <button type="button" class="panel-cert-btn">
+                <img src="assets/certificates/winservercertificate.png"
+                  alt="Windows Server 2016 Fundamentals — certificate of participation">
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="why-divider"></div>
-      <p class="why-story">
-        That's why I chose the bumblebee. It's a reminder that limits only exist if you accept them. As someone who
-        transitioned from IT support to AI and machine learning, I've had my share of "you can't fly" moments. But like
-        the bee, I chose to fly anyway.
-      </p>
-    </div>
-  </section>
+    </section>
+  </template>
 
-  <section id="about">
-    <div class="about-content">
-      <div class="about-heading">
-        <div class="rule-full"></div>
-        <p class="about-label">ABOUT ME</p>
-        <div class="rule-full"></div>
-      </div>
-
-      <div class="about-layout">
-        <article class="about-profile about-panel">
-          <h2 class="about-title">Ralph Rowel</h2>
-          <p class="about-bio">IT graduate turned AI/ML enthusiast. Backend, data analytics, and IT support experience
-            led me to AI and machine learning, sealed by a capstone published in IJRSI.</p>
-          <div class="rule-partial"></div>
-          <ul class="skill-badges">
+  <!-- Skills -->
+  <template id="tpl-skills">
+    <section class="panel-section" id="panel-skills">
+      <p class="hive-eyebrow">02 / THE TOOLKIT</p><h2 class="panel-title">Skills</h2><p class="section-deck">Small cells. Connected possibilities.</p>
+      <div class="panel-skills-grid">
+        <div class="skill-category">
+          <h3 class="panel-sub">Languages</h3>
+          <ul class="skill-badges-panel">
             <li class="badge">Python</li>
-            <li class="badge">Django</li>
-            <li class="badge">DRF</li>
             <li class="badge">PHP</li>
-            <li class="badge">Node.js</li>
             <li class="badge">Java</li>
             <li class="badge">C++</li>
+            <li class="badge">JavaScript</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3 class="panel-sub">Frameworks</h3>
+          <ul class="skill-badges-panel">
+            <li class="badge">Django</li>
+            <li class="badge">DRF</li>
+            <li class="badge">Node.js</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3 class="panel-sub">Databases</h3>
+          <ul class="skill-badges-panel">
             <li class="badge">PostgreSQL</li>
             <li class="badge">MySQL</li>
             <li class="badge">MongoDB</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3 class="panel-sub">Tools & Concepts</h3>
+          <ul class="skill-badges-panel">
+            <li class="badge">RESTful API</li>
             <li class="badge">JWT</li>
             <li class="badge">Swagger</li>
-            <li class="badge">RESTful API</li>
+            <li class="badge">Machine Learning</li>
+            <li class="badge">Data Analytics</li>
+            <li class="badge">Jupyter Notebook</li>
           </ul>
-          <div class="cert-stack" aria-label="Certificates">
-            <button type="button" class="cert-btn">
-              <img class="cert-img" src="assets/certificates/certificateofpublication.jpg"
-                alt="International Journal of Research and Scientific Innovation certificate of publication">
-            </button>
-            <button type="button" class="cert-btn">
-              <img class="cert-img" src="assets/certificates/ciscoawardcert.jfif"
-                alt="Cisco Networking Academy certificate of appreciation">
-            </button>
-            <button type="button" class="cert-btn">
-              <img class="cert-img" src="assets/certificates/winservercertificate.png"
-                alt="Windows Server 2016 Fundamentals certificate of participation">
-            </button>
-          </div>
-        </article>
-
-        <div class="about-photo about-panel">
-          <img class="part2-photo" src="assets/blckwhite-removebg-preview.png" alt="Portrait of Ralph Rowel Dela Rosa">
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </template>
 
+  <!-- Experience -->
+  <template id="tpl-experience">
+    <section class="panel-section" id="panel-experience">
+      <p class="hive-eyebrow">03 / THE FLIGHT PATH</p><h2 class="panel-title">Experience</h2><p class="section-deck">Every landing taught me something new.</p>
+
+      <div class="panel-exp-group">
+        <h3 class="panel-sub">Professional</h3>
+        <div class="panel-exp-card panel-exp-featured">
+          <div class="panel-exp-header">
+            <h4 class="panel-exp-role">Arko &mdash; Co-Founder, Developer, Software Studio</h4>
+            <span class="panel-exp-period">2025 &ndash; Present</span>
+          </div>
+          <ul class="panel-exp-bullets">
+            <li>One of 4 founding members building web, mobile, and automation/AI products for real clients</li>
+            <li>Focused on backend systems, data workflows, and integrating AI features into client products</li>
+            <li>Full-cycle involvement: discovery, build, and handover — no account-manager layer between us and the client</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel-exp-group">
+        <h3 class="panel-sub">Internships</h3>
+        <div class="panel-internship-grid">
+          <div class="panel-exp-card">
+            <div class="panel-exp-header">
+              <h4 class="panel-exp-role">Backend Developer Intern</h4>
+              <p class="panel-exp-company">Hiraya Technology Solutions</p>
+            </div>
+            <ul class="panel-exp-bullets">
+              <li>Designed and maintained secure RESTful APIs.</li>
+              <li>Optimized database queries for improved performance.</li>
+              <li>Developed scalable backend solutions using modern software engineering practices.</li>
+            </ul>
+          </div>
+          <div class="panel-exp-card">
+            <div class="panel-exp-header">
+              <h4 class="panel-exp-role">Data Analyst Intern</h4>
+              <p class="panel-exp-company">Hiraya Technology Solutions</p>
+            </div>
+            <ul class="panel-exp-bullets">
+              <li>Performed data analysis using Python, SQL, and Jupyter Notebook.</li>
+              <li>Created visualizations and reports to support decision-making.</li>
+              <li>Managed and validated large datasets to ensure accuracy.</li>
+            </ul>
+          </div>
+          <div class="panel-exp-card">
+            <div class="panel-exp-header">
+              <h4 class="panel-exp-role">Service Desk &amp; Field Support Intern</h4>
+              <p class="panel-exp-company">Deutsche Business Solutions</p>
+            </div>
+            <ul class="panel-exp-bullets">
+              <li>Assisted technical support operations.</li>
+              <li>Observed remote troubleshooting procedures.</li>
+              <li>Worked with ServiceNow and enterprise support tools.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Projects -->
+  <template id="tpl-projects">
+    <section class="panel-section" id="panel-projects">
+      <p class="hive-eyebrow">04 / FROM THE WORKER BEE</p><h2 class="panel-title">Projects</h2><p class="section-deck">Ideas taking flight.</p>
+      <div class="panel-projects-grid">
+        <div class="panel-project-card">
+          <div class="panel-project-accent"></div>
+          <h3 class="panel-project-title">AI Data Analyst</h3>
+          <p class="panel-project-desc">An intelligent data analysis platform that uses AI to generate insights from datasets automatically.</p>
+          <div class="panel-project-tags">
+            <span class="badge">Python</span>
+            <span class="badge">AI</span>
+            <span class="badge">Data Analytics</span>
+          </div>
+        </div>
+        <div class="panel-project-card">
+          <div class="panel-project-accent"></div>
+          <h3 class="panel-project-title">More coming soon</h3>
+          <p class="panel-project-desc">Projects are actively being built at Arko. Stay tuned.</p>
+          <div class="panel-project-tags">
+            <span class="badge">In Progress</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Publications -->
+  <template id="tpl-publications">
+    <section class="panel-section" id="panel-publications">
+      <p class="hive-eyebrow">05 / KNOWLEDGE WORTH SHARING</p><h2 class="panel-title">Publications</h2><p class="section-deck">From curiosity to contribution.</p>
+      <div class="panel-pub-card">
+        <div class="panel-pub-badge">IJRSI</div>
+        <h3 class="panel-pub-title">Capstone Research</h3>
+        <p class="panel-pub-journal">International Journal of Research and Scientific Innovation</p>
+        <p class="panel-pub-desc">
+          Published research as part of the IT undergraduate capstone project,
+          contributing to the body of knowledge in the field.
+        </p>
+        <a href="#" class="panel-pub-link btn-primary" target="_blank" rel="noopener">View Publication</a>
+      </div>
+    </section>
+  </template>
+
+  <!-- Contact -->
+  <template id="tpl-contact">
+    <section class="panel-section" id="panel-contact">
+      <p class="hive-eyebrow">06 / CROSS-POLLINATION</p><h2 class="panel-title">Contact</h2><p class="section-deck">Good things start with a conversation.</p>
+      <p class="panel-contact-intro">Let's build something together.</p>
+      <div class="panel-contact-links">
+        <a href="mailto:ralphrowel@example.com" class="panel-contact-item">
+          <span class="panel-contact-icon">✉️</span>
+          <span>ralphrowel@example.com</span>
+        </a>
+        <a href="https://github.com/ralphrowel" target="_blank" rel="noopener" class="panel-contact-item">
+          <span class="panel-contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z"/>
+            </svg>
+          </span>
+          <span>github.com/ralphrowel</span>
+        </a>
+        <a href="https://linkedin.com/in/ralphrowel" target="_blank" rel="noopener" class="panel-contact-item">
+          <span class="panel-contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </span>
+          <span>linkedin.com/in/ralphrowel</span>
+        </a>
+      </div>
+    </section>
+  </template>
+
+  <!-- ===================== CERT LIGHTBOX (for About panel) ===================== -->
   <div id="cert-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Certificate preview">
     <div class="lightbox-dialog">
       <img id="lightbox-img" alt="">
@@ -189,95 +415,10 @@
     </div>
   </div>
 
-  <div class="experience-backdrop" aria-hidden="true"></div>
-
-  <section id="experience">
-    <div class="experience-content">
-      <div class="experience-heading">
-        <div class="rule-full"></div>
-        <p class="about-label">EXPERIENCES</p>
-        <div class="rule-full"></div>
-      </div>
-
-      <div class="experience-container">
-        <!-- Professional Experience -->
-        <div class="experience-group">
-          <h3 class="experience-subheading">Professional Experience</h3>
-          <div class="exp-card exp-card-featured">
-            <div class="exp-card-header">
-              <div class="exp-title-row">
-                <h4 class="exp-role">Arko &mdash; Co-Founder, Developer, Software Studio</h4>
-                <span class="exp-period">2025 &ndash; Present</span>
-              </div>
-            </div>
-            <ul class="exp-bullets">
-              <li>One of 4 founding members building web, mobile, and automation/AI products for real clients</li>
-              <li>Focused on backend systems, data workflows, and integrating AI features into client products</li>
-              <li>Full-cycle involvement: discovery, build, and handover - no account-manager layer between us and the
-                client</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Internship Experience -->
-        <div class="experience-group">
-          <h3 class="experience-subheading">Internship Experience</h3>
-          <div class="internship-grid">
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <h4 class="exp-role">Backend Developer Intern</h4>
-                <p class="exp-company">Hiraya Technology Solutions</p>
-              </div>
-              <ul class="exp-bullets">
-                <li>Designed and maintained secure RESTful APIs.</li>
-                <li>Optimized database queries for improved performance.</li>
-                <li>Developed scalable backend solutions using modern software engineering practices.</li>
-              </ul>
-            </div>
-
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <h4 class="exp-role">Data Analyst Intern</h4>
-                <p class="exp-company">Hiraya Technology Solutions</p>
-              </div>
-              <ul class="exp-bullets">
-                <li>Performed data analysis using Python, SQL, and Jupyter Notebook.</li>
-                <li>Created visualizations and reports to support decision-making.</li>
-                <li>Managed and validated large datasets to ensure accuracy.</li>
-              </ul>
-            </div>
-
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <h4 class="exp-role">Service Desk &amp; Field Support Intern</h4>
-                <p class="exp-company">Deutsche Business Solutions</p>
-              </div>
-              <ul class="exp-bullets">
-                <li>Assisted technical support operations.</li>
-                <li>Observed remote troubleshooting procedures.</li>
-                <li>Worked with ServiceNow and enterprise support tools.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <p>Projects Section</p>
-  </section>
-
-  <footer class="site-footer">
-    <p class="model-credit">
-      "Bumblebee" by <a href="https://skfb.ly/pvDuq" target="_blank" rel="noopener">butterflybliss</a>, licensed under
-      <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
-    </p>
-  </footer>
-
+  <!-- ===================== SCRIPTS ===================== -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/hex-menu.js"></script>
   <script src="js/honeycomb-hover.js"></script>
   <script type="module" src="js/bee-scene.js"></script>
 </body>

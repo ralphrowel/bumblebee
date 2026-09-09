@@ -1,3 +1,4 @@
+/* ─── Site header ───────────────────────────────────────────── */
 .site-header {
   position: fixed;
   top: 9px;
@@ -13,70 +14,96 @@
   font-size: 0.85rem;
 }
 
+/* ─── Left: roles tagline ───────────────────────────────────── */
 .header-left {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+
+.header-tagline {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Center: name (absolute, truly centred in viewport) ─────── */
+.header-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .header-name {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
+  font-size: 0.9rem;
   color: var(--text);
   white-space: nowrap;
+  letter-spacing: 0.03em;
 }
 
-.header-tagline {
-  color: var(--text-muted);
-  font-size: 0.78rem;
-  white-space: nowrap;
-}
-
+/* ─── Right: home button + social icons ─────────────────────── */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.header-right .social-links {
-  gap: 0.75rem;
+/* ─── Home button ────────────────────────────────────────────── */
+#home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: rgba(35, 32, 25, 0.7);
+  border: 1px solid rgba(240, 184, 76, 0.2);
+  padding: 0.38rem 0.85rem 0.38rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+
+  /* Hidden by default, shown by JS when menu is active */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease,
+    color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
-.header-right .social-links a {
+#home-btn.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+#home-btn:hover {
   color: var(--accent);
+  border-color: rgba(240, 184, 76, 0.55);
+  background: rgba(35, 32, 25, 0.92);
+}
+
+/* ─── Social icons ───────────────────────────────────────────── */
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-links a {
+  color: var(--accent);
+  transition: color 0.3s ease;
   display: inline-flex;
   align-items: center;
 }
 
-.header-right .social-links a:hover {
+.social-links a:hover {
   color: var(--accent-muted);
-}
-
-.header-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  background: rgba(35, 32, 25, 0.75);
-  border: 1px solid rgba(156, 145, 132, 0.2);
-  border-radius: 999px;
-  padding: 0.3rem 0.4rem;
-}
-
-.header-nav a {
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-family: 'Inter', sans-serif;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  white-space: nowrap;
-}
-
-.header-nav a:hover {
-  color: var(--text);
-  background-color: rgba(255, 255, 255, 0.05);
 }

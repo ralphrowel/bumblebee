@@ -15,9 +15,10 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: hidden;
+  height: 100%;
 }
+
 
 body {
   background-color: var(--bg);
@@ -26,6 +27,8 @@ body {
   font-weight: 300;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {

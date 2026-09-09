@@ -1,38 +1,43 @@
+/* ─── Hero section ──────────────────────────────────────────── */
 #hero {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* No scroll — fixed full-screen experience */
 }
 
+/* ─── BUMBLEBEE wordmark ─────────────────────────────────────── */
 .hero-wordmark-wrap {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -54%);
+  transform: translate(-50%, -58%);
   z-index: 3;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 .hero-wordmark {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: clamp(5rem, 14vw, 12rem);
+  font-size: clamp(4rem, 12vw, 11rem);
   color: var(--accent);
   text-align: center;
   line-height: 1.1;
   letter-spacing: -0.02em;
   user-select: none;
   opacity: 0;
-  text-shadow: 0 0 50px rgba(20, 19, 16, 0.9), 0 4px 12px rgba(0, 0, 0, 0.95);
-  transition: filter 0.4s ease;
+  text-shadow:
+    0 0 50px rgba(20, 19, 16, 0.9),
+    0 4px 12px rgba(0, 0, 0, 0.95);
+  will-change: opacity, transform, filter;
 }
 
-
-
+/* ─── Loading screen ─────────────────────────────────────────── */
 #loading-screen {
   position: fixed;
   inset: 0;
@@ -69,13 +74,10 @@
 }
 
 @keyframes hex-pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.35;
     transform: scale(0.9);
   }
-
   50% {
     opacity: 1;
     transform: scale(1.06);
