@@ -1,0 +1,456 @@
+/* ============================================================
+   GLASS PANEL REDESIGN
+   Sections (About, Skills, Experience, Publications, Contact)
+   are rendered inside a centered square glass container.
+   The bee background + honeycomb remain fully visible behind it.
+   ============================================================ */
+
+/* ── 1. Make the section-panel overlay transparent so the
+        bee / honeycomb scene shows through ─────────────────── */
+#section-panel {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  /* subtle dark vignette so glass box pops */
+  box-shadow: inset 0 0 0 9999px rgba(10, 9, 8, 0.42);
+}
+
+/* ── 2. Reframe panel-content as the centered glass rectangle ─── */
+#panel-content {
+  /* Center the box in the viewport */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+
+  /* Wide rectangle — generous sides */
+  width: min(940px, calc(100vw - 1.5rem));
+  height: min(78vh, 680px);
+  max-width: none;
+  max-height: none;
+
+  padding: 2.5rem 4rem 2.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Gray frosted glass */
+  background: rgba(34, 32, 28, 0.62);
+  backdrop-filter: blur(24px) saturate(1.4) brightness(0.95);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) brightness(0.95);
+
+  /* Rounded rectangle */
+  border-radius: 18px;
+
+  /* Amber-tinted glass border */
+  border: 1px solid rgba(240, 184, 76, 0.20);
+
+  /* Layered glow: inner shimmer + outer ambient */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 2px 0 rgba(255, 255, 255, 0.08) inset,
+    0 0 40px rgba(240, 184, 76, 0.06) inset,
+    0 32px 90px rgba(0, 0, 0, 0.60),
+    0 0 80px rgba(240, 184, 76, 0.08);
+
+  /* Pointer-events stay on so stop-propagation works */
+  pointer-events: auto;
+  transition: opacity 0.4s ease;
+
+  /* Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(240, 184, 76, 0.3) transparent;
+}
+
+#panel-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+#panel-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#panel-content::-webkit-scrollbar-thumb {
+  background: rgba(240, 184, 76, 0.3);
+  border-radius: 3px;
+}
+
+/* ── 3. Glass top shimmer line ───────────────────────────────── */
+#panel-content::before {
+  content: '';
+  display: block;
+  height: 1px;
+  margin: -2.5rem -4rem 2rem;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(240, 184, 76, 0.40) 25%,
+      rgba(255, 255, 255, 0.20) 50%,
+      rgba(240, 184, 76, 0.40) 75%,
+      transparent 100%);
+  pointer-events: none;
+  border-radius: 18px 18px 0 0;
+}
+
+/* ── 4. Back button — LOWER-RIGHT, outside the glass box ─────── */
+/* Box bottom edge is at:  50% + boxHeight/2
+   Button sits 10px below that edge, aligned to the box's right edge */
+#panel-back-btn {
+  position: fixed;
+  top: calc(50% + min(78vh, 680px) / 2 + 10px);
+  left: calc(50% + min(940px, calc(100vw - 1.5rem)) / 2);
+  transform: translateX(-100%);
+  z-index: 25;
+  background: rgba(20, 18, 14, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(240, 184, 76, 0.30);
+  border-radius: 8px;
+  color: var(--accent);
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+/* ── 5. Panel section — glass entrance animation ─────────────── */
+.panel-section {
+  animation: glassContentIn 0.45s cubic-bezier(0.22, 0.68, 0, 1.12) forwards;
+}
+
+@keyframes glassContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── 6. Title — amber glow ───────────────────────────────────── */
+.panel-title {
+  color: var(--accent);
+  text-shadow: 0 0 32px rgba(240, 184, 76, 0.22);
+}
+
+/* ── 7. Skill categories — nested glass cards ────────────────── */
+.skill-category {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(240, 184, 76, 0.13);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 12px;
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.skill-category:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(240, 184, 76, 0.30);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+/* ── 8. Experience cards — glass ────────────────────────────── */
+.panel-exp-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(240, 184, 76, 0.13);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 12px;
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.panel-exp-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(240, 184, 76, 0.32);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.32), 0 0 20px rgba(240, 184, 76, 0.07);
+}
+
+.panel-exp-featured {
+  background: rgba(240, 184, 76, 0.06) !important;
+  border-color: rgba(240, 184, 76, 0.28) !important;
+}
+
+/* ── 9. Publication card — glass ─────────────────────────────── */
+.panel-pub-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(240, 184, 76, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 14px;
+  max-width: 100%;
+  transition: box-shadow 0.3s;
+}
+
+.panel-pub-card:hover {
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.38), 0 0 28px rgba(240, 184, 76, 0.10);
+}
+
+/* Meta row: badge + year */
+.panel-pub-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.panel-pub-year {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+}
+
+/* Authors */
+.panel-pub-authors {
+  margin: 1.1rem 0 1rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid rgba(240, 184, 76, 0.4);
+  border-radius: 0 6px 6px 0;
+}
+
+.panel-pub-authors-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.55rem;
+}
+
+.panel-pub-author-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.panel-pub-author-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.panel-pub-author-list li strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Collapsible abstract */
+.panel-pub-abstract {
+  margin: 1.1rem 0;
+  border: 1px solid rgba(240, 184, 76, 0.14);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.panel-pub-abstract-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.panel-pub-abstract-toggle::-webkit-details-marker { display: none; }
+
+.panel-pub-abstract-toggle:hover {
+  background: rgba(240, 184, 76, 0.05);
+}
+
+.panel-pub-abstract-arrow {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.panel-pub-abstract[open] .panel-pub-abstract-arrow {
+  transform: rotate(180deg);
+}
+
+.panel-pub-abstract-body {
+  padding: 0 1rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.panel-pub-abstract-body strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Tech tags row */
+.panel-pub-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 1.4rem;
+}
+
+/* Certificates section below the card */
+.panel-pub-certs {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(240, 184, 76, 0.12);
+}
+
+.panel-pub-certs-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+/* ── 10. Contact items — glass ───────────────────────────────── */
+.panel-contact-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(240, 184, 76, 0.13);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 12px;
+  max-width: 100%;
+  transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.25s;
+}
+
+.panel-contact-item:hover {
+  background: rgba(240, 184, 76, 0.08);
+  border-color: rgba(240, 184, 76, 0.38);
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+/* ── 11. Project cards — glass ───────────────────────────────── */
+.panel-project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(240, 184, 76, 0.13);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 14px;
+  transition: background 0.25s, border-color 0.25s, transform 0.3s, box-shadow 0.3s;
+}
+
+.panel-project-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(240, 184, 76, 0.38);
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+}
+
+/* ── 12. Photo hex wrapper — keep glass vibe ─────────────────── */
+.panel-photo-wrap {
+  background: linear-gradient(150deg, rgba(240, 184, 76, 0.18), rgba(100, 70, 20, 0.28));
+  border: 1px solid rgba(240, 184, 76, 0.18);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* ── 13. Cert buttons — glass ────────────────────────────────── */
+.panel-cert-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(240, 184, 76, 0.18);
+  border-radius: 8px;
+  transition: border-color 0.22s, background 0.22s, transform 0.22s;
+}
+
+.panel-cert-btn:hover {
+  border-color: rgba(240, 184, 76, 0.50);
+  background: rgba(240, 184, 76, 0.06);
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* ── 14. Hive eyebrow — with hex pip ────────────────────────── */
+.panel-section>.hive-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.35rem;
+}
+
+.panel-section>.hive-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 12px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── 15. Section-next button — glass ────────────────────────── */
+.section-next {
+  border-color: rgba(240, 184, 76, 0.22);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0 0 12px 12px;
+  transition: background 0.25s;
+}
+
+.section-next:hover {
+  background: rgba(240, 184, 76, 0.05);
+}
+
+/* ── 16. Click-outside: overlay is the hit target; box stops propagation */
+#section-panel {
+  cursor: pointer;
+}
+#panel-content {
+  cursor: default;
+}
+
+/* ── 17. Responsive — mobile ─────────────────────────────────── */
+@media (max-width: 640px) {
+  #panel-content {
+    width: calc(100vw - 1.5rem);
+    height: calc(100dvh - 8rem);
+    padding: 2rem 1.5rem 1.75rem;
+    border-radius: 14px;
+    top: 50%;
+    left: 50%;
+  }
+
+  #panel-content::before {
+    margin: -2rem -1.5rem 1.5rem;
+  }
+
+  /* On mobile, back btn shifts below the box centered */
+  #panel-back-btn {
+    top: calc(50% + (100dvh - 8rem) / 2 + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-height: 600px) {
+  #panel-content {
+    height: calc(100dvh - 3.5rem);
+    top: 50%;
+  }
+
+  #panel-back-btn {
+    top: calc(50% + (100dvh - 3.5rem) / 2 + 8px);
+    left: calc(50% + min(720px, calc(100vw - 2.5rem)) / 2);
+    transform: translateX(-100%);
+  }
+}

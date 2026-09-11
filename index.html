@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/hex-menu.css">
   <link rel="stylesheet" href="css/hive.css">
+  <link rel="stylesheet" href="css/panels-glass.css">
   <script type="importmap">
   {
     "imports": {
@@ -129,7 +130,11 @@
 
   <!-- ===================== HEX MENU ===================== -->
   <div id="hex-menu" aria-hidden="true" role="navigation" aria-label="Portfolio sections">
-    <div class="menu-heading"><span class="hive-eyebrow">A LITTLE CURIOSITY GOES A LONG WAY</span><h2>Explore the hive.</h2><p>Six cells. One curious mind. Pick a place to land.</p></div><p class="menu-footnote">BUILT WITH PURPOSE. &nbsp; WIRED TO EXPLORE.</p>
+    <div class="menu-heading"><span class="hive-eyebrow">A LITTLE CURIOSITY GOES A LONG WAY</span>
+      <h2>Explore the hive.</h2>
+      <p>Six cells. One curious mind. Pick a place to land.</p>
+    </div>
+    <p class="menu-footnote">BUILT WITH PURPOSE. &nbsp; WIRED TO EXPLORE.</p>
     <!-- Centre decorative hex -->
     <div class="hex-node hex-centre" data-hex="centre" aria-hidden="true">
       <svg class="hex-bee-icon" viewBox="0 0 40 46" fill="none" aria-hidden="true">
@@ -193,7 +198,9 @@
   <!-- About Me -->
   <template id="tpl-about">
     <section class="panel-section" id="panel-about">
-      <p class="hive-eyebrow">01 / THE BEE BEHIND THE WORK</p><h2 class="panel-title">About Me</h2><p class="section-deck">A curious mind. A builder at heart.</p>
+      <p class="hive-eyebrow">01 / THE BEE BEHIND THE WORK</p>
+      <h2 class="panel-title">About Me</h2>
+      <p class="section-deck">A curious mind. A builder at heart.</p>
       <div class="panel-about-layout">
         <div class="panel-about-text">
           <p class="panel-bio">
@@ -202,7 +209,8 @@
           </p>
           <div class="panel-divider"></div>
           <div class="panel-photo-wrap">
-            <img class="panel-portrait" src="assets/blckwhite-removebg-preview.png" alt="Ralph Rowel Dela Rosa portrait">
+            <img class="panel-portrait" src="assets/blckwhite-removebg-preview.png"
+              alt="Ralph Rowel Dela Rosa portrait">
           </div>
           <div class="panel-certs">
             <h3 class="panel-sub">Certificates</h3>
@@ -229,7 +237,9 @@
   <!-- Skills -->
   <template id="tpl-skills">
     <section class="panel-section" id="panel-skills">
-      <p class="hive-eyebrow">02 / THE TOOLKIT</p><h2 class="panel-title">Skills</h2><p class="section-deck">Small cells. Connected possibilities.</p>
+      <p class="hive-eyebrow">02 / THE TOOLKIT</p>
+      <h2 class="panel-title">Skills</h2>
+      <p class="section-deck">Small cells. Connected possibilities.</p>
       <div class="panel-skills-grid">
         <div class="skill-category">
           <h3 class="panel-sub">Languages</h3>
@@ -275,7 +285,9 @@
   <!-- Experience -->
   <template id="tpl-experience">
     <section class="panel-section" id="panel-experience">
-      <p class="hive-eyebrow">03 / THE FLIGHT PATH</p><h2 class="panel-title">Experience</h2><p class="section-deck">Every landing taught me something new.</p>
+      <p class="hive-eyebrow">03 / THE FLIGHT PATH</p>
+      <h2 class="panel-title">Experience</h2>
+      <p class="section-deck">Every landing taught me something new.</p>
 
       <div class="panel-exp-group">
         <h3 class="panel-sub">Professional</h3>
@@ -287,7 +299,8 @@
           <ul class="panel-exp-bullets">
             <li>One of 4 founding members building web, mobile, and automation/AI products for real clients</li>
             <li>Focused on backend systems, data workflows, and integrating AI features into client products</li>
-            <li>Full-cycle involvement: discovery, build, and handover — no account-manager layer between us and the client</li>
+            <li>Full-cycle involvement: discovery, build, and handover — no account-manager layer between us and the
+              client</li>
           </ul>
         </div>
       </div>
@@ -336,12 +349,15 @@
   <!-- Projects -->
   <template id="tpl-projects">
     <section class="panel-section" id="panel-projects">
-      <p class="hive-eyebrow">04 / FROM THE WORKER BEE</p><h2 class="panel-title">Projects</h2><p class="section-deck">Ideas taking flight.</p>
+      <p class="hive-eyebrow">04 / FROM THE WORKER BEE</p>
+      <h2 class="panel-title">Projects</h2>
+      <p class="section-deck">Ideas taking flight.</p>
       <div class="panel-projects-grid">
         <div class="panel-project-card">
           <div class="panel-project-accent"></div>
           <h3 class="panel-project-title">AI Data Analyst</h3>
-          <p class="panel-project-desc">An intelligent data analysis platform that uses AI to generate insights from datasets automatically.</p>
+          <p class="panel-project-desc">An intelligent data analysis platform that uses AI to generate insights from
+            datasets automatically.</p>
           <div class="panel-project-tags">
             <span class="badge">Python</span>
             <span class="badge">AI</span>
@@ -363,24 +379,95 @@
   <!-- Publications -->
   <template id="tpl-publications">
     <section class="panel-section" id="panel-publications">
-      <p class="hive-eyebrow">05 / KNOWLEDGE WORTH SHARING</p><h2 class="panel-title">Publications</h2><p class="section-deck">From curiosity to contribution.</p>
+      <p class="hive-eyebrow">05 / KNOWLEDGE WORTH SHARING</p>
+      <h2 class="panel-title">Publications</h2>
+      <p class="section-deck">From curiosity to contribution.</p>
+
+      <!-- Publication Card -->
       <div class="panel-pub-card">
-        <div class="panel-pub-badge">IJRSI</div>
-        <h3 class="panel-pub-title">Capstone Research</h3>
-        <p class="panel-pub-journal">International Journal of Research and Scientific Innovation</p>
-        <p class="panel-pub-desc">
-          Published research as part of the IT undergraduate capstone project,
-          contributing to the body of knowledge in the field.
-        </p>
-        <a href="#" class="panel-pub-link btn-primary" target="_blank" rel="noopener">View Publication</a>
+        <div class="panel-pub-meta-row">
+          <span class="panel-pub-badge">IJRSI</span>
+          <span class="panel-pub-year">2026</span>
+        </div>
+
+        <h3 class="panel-pub-title">Development of an AI-Enhanced Bubble Curtain System for Automated River Waste
+          Collection and Monitoring</h3>
+
+        <p class="panel-pub-journal">International Journal of Research and Scientific Innovation (IJRSI)</p>
+
+        <!-- Authors -->
+        <div class="panel-pub-authors">
+          <p class="panel-pub-authors-label">Authors</p>
+          <ul class="panel-pub-author-list">
+            <li><strong>Bacurin, Justine Cane V.</strong> — BSIT, Jesus Reigns Christian College, Manila</li>
+            <li><strong>Dela Rosa, Ralph Rowel A.</strong> — BSIT, Jesus Reigns Christian College, Manila</li>
+            <li><strong>Gallardo, Mary Shulamite S.</strong> — BSIT, Jesus Reigns Christian College, Manila</li>
+            <li><strong>Agustin, Vivien A.</strong> — La Consolacion University Philippines</li>
+            <li><strong>Fernandez, Ronald B.</strong> — La Consolacion University Philippines</li>
+          </ul>
+        </div>
+
+        <!-- Abstract (collapsible) -->
+        <details class="panel-pub-abstract">
+          <summary class="panel-pub-abstract-toggle">Abstract <span class="panel-pub-abstract-arrow">↓</span></summary>
+          <p class="panel-pub-abstract-body">
+            Riverine plastic and floating waste continue to threaten aquatic ecosystems and public health in the
+            Philippines,
+            where weak waste management infrastructure and high single-use plastic consumption contribute significantly
+            to river
+            pollution and downstream marine contamination. Existing interception methods such as manual cleanup
+            operations,
+            floating barriers, and mechanical interceptors remain inefficient, labor-intensive, and incapable of
+            real-time
+            monitoring or adaptive response to changing river conditions. This study designed and developed an
+            AI-Enhanced
+            Bubble Curtain System integrating bubble curtain technology with artificial intelligence to automate waste
+            interception, classification, and centralized data management. Built using Agile methodology with a Django
+            REST
+            Framework backend, PostgreSQL database, YOLOv8-based image classification model, and a web-based monitoring
+            dashboard. Results demonstrated real-time waste detection and classification, achieving a garbage detection
+            rate
+            of <strong>58.3%</strong> across 17 captured images, with a fully functional administrative dashboard
+            consolidating detection summaries, alert notifications, and user management controls.
+          </p>
+        </details>
+
+        <!-- Tech Stack Tags -->
+        <div class="panel-pub-tags">
+          <span class="badge">Python</span>
+          <span class="badge">YOLOv8</span>
+          <span class="badge">Django REST</span>
+          <span class="badge">PostgreSQL</span>
+          <span class="badge">AI / ML</span>
+          <span class="badge">Arduino</span>
+        </div>
+
+        <a href="https://rsisinternational.org/journals/ijrsi/view/development-of-an-ai-enhanced-bubble-curtain-system-for-automated-river-waste-collection-and-monitoring"
+          class="panel-pub-link btn-primary" target="_blank" rel="noopener">
+          View Publication ↗
+        </a>
       </div>
+
+      <!-- Certificates -->
+      <div class="panel-pub-certs">
+        <h3 class="panel-sub">Certificate <span class="panel-pub-certs-hint">/ select to view</span></h3>
+        <div class="panel-cert-grid">
+          <button type="button" class="panel-cert-btn">
+            <img src="assets/certificates/certificateofpublication.jpg"
+              alt="International Journal of Research and Scientific Innovation — certificate of publication">
+          </button>
+        </div>
+      </div>
+
     </section>
   </template>
 
   <!-- Contact -->
   <template id="tpl-contact">
     <section class="panel-section" id="panel-contact">
-      <p class="hive-eyebrow">06 / CROSS-POLLINATION</p><h2 class="panel-title">Contact</h2><p class="section-deck">Good things start with a conversation.</p>
+      <p class="hive-eyebrow">06 / CROSS-POLLINATION</p>
+      <h2 class="panel-title">Contact</h2>
+      <p class="section-deck">Good things start with a conversation.</p>
       <p class="panel-contact-intro">Let's build something together.</p>
       <div class="panel-contact-links">
         <a href="mailto:ralphrowel@example.com" class="panel-contact-item">
@@ -390,7 +477,8 @@
         <a href="https://github.com/ralphrowel" target="_blank" rel="noopener" class="panel-contact-item">
           <span class="panel-contact-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z"/>
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z" />
             </svg>
           </span>
           <span>github.com/ralphrowel</span>
@@ -398,7 +486,8 @@
         <a href="https://linkedin.com/in/ralphrowel" target="_blank" rel="noopener" class="panel-contact-item">
           <span class="panel-contact-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
           </span>
           <span>linkedin.com/in/ralphrowel</span>
