@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="upBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181612"/>
+      <stop offset="100%" stop-color="#0e0d0a"/>
+    </linearGradient>
+
+    <pattern id="upGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#f0b84c" stroke-width="0.5" stroke-opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <rect width="240" height="240" fill="url(#upBg)"/>
+  <rect width="240" height="240" fill="url(#upGrid)"/>
+
+  <!-- Center blueprint circle with dashed border -->
+  <circle cx="120" cy="110" r="54" fill="none" stroke="#f0b84c" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
+  <circle cx="120" cy="110" r="36" fill="#f0b84c" fill-opacity="0.04"/>
+
+  <!-- Hexagon center icon -->
+  <polygon points="120,86 141,98 141,122 120,134 99,122 99,98" fill="none" stroke="#f0b84c" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="120" y="116" font-size="20" text-anchor="middle" fill="#f0b84c" fill-opacity="0.8">⚡</text>
+
+  <!-- Status pill -->
+  <g transform="translate(68, 175)">
+    <rect x="0" y="0" width="104" height="22" rx="11" fill="#f0b84c" fill-opacity="0.08" stroke="#f0b84c" stroke-width="0.8" stroke-opacity="0.3"/>
+    <text x="52" y="14" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="600" fill="#c99a3e" letter-spacing="1.2" text-anchor="middle">IN THE WORKSHOP</text>
+  </g>
+</svg>

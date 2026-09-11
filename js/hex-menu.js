@@ -76,6 +76,25 @@
     footer.addEventListener('click', () => switchSection(next));
     content.querySelector('.panel-section').appendChild(footer);
   }
+  function openSectionDirectly(id) {
+    const hex = menu.querySelector('.hex-ring[data-section="' + id + '"]');
+    if (!hex) return;
+    const loader = document.getElementById('loading-screen');
+    if (loader) loader.classList.add('is-hidden');
+    if (observer) observer.disconnect();
+    state = 'panel'; active = hex; busy = false;
+    visible(hero, false); hero.style.opacity = '0';
+    home.classList.add('is-visible'); home.inert = false;
+    visible(menu, false); menu.classList.remove('is-visible');
+    loadSection(hex);
+    visible(panel, true);
+    panel.classList.add('is-open'); content.classList.add('is-visible'); back.classList.add('is-visible');
+    gsap.set(panel, { opacity: 1, clipPath: 'none' });
+    gsap.set(content, { opacity: 1 }); gsap.set(back, { opacity: 1 });
+    revealSection();
+    gsap.to('#bee-stage', { opacity: .04, duration: 0.2 });
+    try { history.replaceState(null, '', '#' + id); } catch (e) {}
+  }
   function openPanel(hex) {
     if (busy || state !== 'menu') return;
     busy = true; state = 'panel'; active = hex;
@@ -90,6 +109,7 @@
       }
     });
     gsap.to('#bee-stage', { opacity: .04, duration: duration(.4) });
+    try { history.replaceState(null, '', '#' + hex.dataset.section); } catch (e) {}
   }
   function switchSection(hex) {
     if (busy) return; busy = true;
@@ -97,6 +117,7 @@
     gsap.to(content, {
       opacity: 0, duration: duration(.18), onComplete() {
         active = hex; loadSection(hex); gsap.set(content, { opacity: 1 }); revealSection(); busy = false; back.focus();
+        try { history.replaceState(null, '', '#' + hex.dataset.section); } catch (e) {}
       }
     });
   }
@@ -106,12 +127,24 @@
     gsap.to(panel, {
       opacity: 0, duration: duration(.3), onComplete() {
         panel.classList.remove('is-open'); content.replaceChildren(); state = 'menu';
-        if (goHome) { busy = false; toHome(); } else { bloom(active); }
+        if (goHome) {
+          busy = false; toHome();
+        } else {
+          bloom(active);
+          try { history.replaceState(null, '', '#menu'); } catch (e) {}
+        }
       }
     });
     gsap.to('#bee-stage', { opacity: .18, duration: duration(.4) });
   }
-  enter.addEventListener('click', toMenu); home.addEventListener('click', toHome);
+  enter.addEventListener('click', () => {
+    toMenu();
+    try { history.replaceState(null, '', '#menu'); } catch (e) {}
+  });
+  home.addEventListener('click', () => {
+    toHome();
+    try { history.replaceState(null, '', window.location.pathname); } catch (e) {}
+  });
   back.addEventListener('click', () => closePanel());
   /* Click anywhere on the dark overlay (outside the glass box) → close */
   panel.addEventListener('click', () => { if (state === 'panel') closePanel(); });
@@ -128,5 +161,32 @@
   });
   motion.addEventListener('change', () => { if (motion.matches && observer) { observer.disconnect(); content.querySelectorAll('.reveal-ready').forEach(el => el.classList.add('revealed')); } });
   visible(menu, false); visible(panel, false); home.inert = true;
-  window.closePanel = closePanel; window.collapseHexMenu = toHome;
+  window.closePanel = closePanel; window.collapseHexMenu = toHome; window.openSectionDirectly = openSectionDirectly;
+
+  /* Check hash on page load / bfcache restore */
+  function handleHash() {
+    const raw = (window.location.hash || '').replace('#', '').trim().toLowerCase();
+    if (!raw) return;
+    if (raw === 'menu') {
+      const loader = document.getElementById('loading-screen');
+      if (loader) loader.classList.add('is-hidden');
+      toMenu();
+      return;
+    }
+    const hex = menu.querySelector('.hex-ring[data-section="' + raw + '"]');
+    if (hex) {
+      openSectionDirectly(raw);
+    }
+  }
+
+  // Run on start
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(handleHash, 50);
+  } else {
+    window.addEventListener('DOMContentLoaded', () => setTimeout(handleHash, 50));
+  }
+  window.addEventListener('hashchange', handleHash);
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted || window.location.hash) handleHash();
+  });
 })();

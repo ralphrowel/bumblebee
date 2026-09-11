@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1810"/>
+      <stop offset="50%" stop-color="#14120d"/>
+      <stop offset="100%" stop-color="#0a0907"/>
+    </linearGradient>
+
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e5a83b"/>
+      <stop offset="100%" stop-color="#f5cc70"/>
+    </linearGradient>
+
+    <linearGradient id="barGrad1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#8a611c"/>
+      <stop offset="100%" stop-color="#f0b84c"/>
+    </linearGradient>
+
+    <linearGradient id="barGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#6e4f16"/>
+      <stop offset="100%" stop-color="#ffdc82"/>
+    </linearGradient>
+
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="cardGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f0b84c" stroke-width="0.5" stroke-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="240" height="240" fill="url(#bgGrad)"/>
+  <rect width="240" height="240" fill="url(#cardGrid)"/>
+
+  <!-- Subtle ambient glow circle -->
+  <circle cx="120" cy="110" r="70" fill="#f0b84c" fill-opacity="0.07" filter="url(#goldGlow)"/>
+
+  <!-- Honeycomb decorative watermark -->
+  <path d="M120 18 L142 30 L142 56 L120 68 L98 56 L98 30 Z" fill="none" stroke="#f0b84c" stroke-width="1" stroke-opacity="0.25"/>
+  <path d="M152 74 L174 86 L174 112 L152 124 L130 112 L130 86 Z" fill="none" stroke="#f0b84c" stroke-width="1" stroke-opacity="0.15"/>
+  <path d="M88 74 L110 86 L110 112 L88 124 L66 112 L66 86 Z" fill="none" stroke="#f0b84c" stroke-width="1" stroke-opacity="0.15"/>
+
+  <!-- Network connection lines -->
+  <path d="M60 145 L90 110 L150 110 L180 145" fill="none" stroke="#f0b84c" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="3,3"/>
+  <circle cx="60" cy="145" r="4" fill="#f0b84c" filter="url(#goldGlow)"/>
+  <circle cx="90" cy="110" r="3.5" fill="#ffd778"/>
+  <circle cx="150" cy="110" r="3.5" fill="#ffd778"/>
+  <circle cx="180" cy="145" r="4" fill="#f0b84c" filter="url(#goldGlow)"/>
+
+  <!-- Central Agent Core Pill -->
+  <rect x="68" y="94" width="104" height="32" rx="16" fill="#1b1710" stroke="#f0b84c" stroke-width="1.5" filter="url(#goldGlow)"/>
+  <circle cx="86" cy="110" r="5" fill="#f0b84c"/>
+  <text x="122" y="114" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" fill="#f7dfa5" letter-spacing="1.5" text-anchor="middle">VISIQ CORE</text>
+
+  <!-- Plotly Analytical Chart Archetype Preview -->
+  <g transform="translate(50, 150)">
+    <!-- Base chart baseline -->
+    <line x1="0" y1="42" x2="140" y2="42" stroke="#f0b84c" stroke-opacity="0.3" stroke-width="1"/>
+    
+    <!-- Bar 1 -->
+    <rect x="15" y="18" width="16" height="24" rx="2" fill="url(#barGrad1)"/>
+    <!-- Bar 2 -->
+    <rect x="45" y="8" width="16" height="34" rx="2" fill="url(#barGrad2)" filter="url(#goldGlow)"/>
+    <!-- Bar 3 -->
+    <rect x="75" y="24" width="16" height="18" rx="2" fill="url(#barGrad1)"/>
+    <!-- Bar 4 -->
+    <rect x="105" y="4" width="16" height="38" rx="2" fill="url(#barGrad2)" filter="url(#goldGlow)"/>
+
+    <!-- Trend line overlay -->
+    <path d="M23 18 Q 53 6 83 22 T 113 4" fill="none" stroke="#fff" stroke-width="1.5" stroke-opacity="0.75"/>
+    <circle cx="113" cy="4" r="2.5" fill="#fff"/>
+  </g>
+
+  <!-- Top Badges -->
+  <g transform="translate(18, 22)">
+    <rect x="0" y="0" width="76" height="18" rx="4" fill="#f0b84c" fill-opacity="0.12" stroke="#f0b84c" stroke-width="0.8" stroke-opacity="0.5"/>
+    <text x="38" y="12" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="600" fill="#f0b84c" letter-spacing="0.8" text-anchor="middle">&lt; 800MS</text>
+  </g>
+
+  <g transform="translate(146, 22)">
+    <rect x="0" y="0" width="76" height="18" rx="4" fill="#34d399" fill-opacity="0.12" stroke="#34d399" stroke-width="0.8" stroke-opacity="0.5"/>
+    <text x="38" y="12" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="600" fill="#34d399" letter-spacing="0.8" text-anchor="middle">47 PASS</text>
+  </g>
+
+  <!-- Bottom Label -->
+  <text x="120" y="218" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="600" fill="#9c9184" letter-spacing="1.8" text-anchor="middle">WORKFLOW &bull; ARCHITECTURE</text>
+</svg>

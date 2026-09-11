@@ -25,7 +25,7 @@
   margin: 0;
 
   /* Wide rectangle — generous sides */
-  width: min(940px, calc(100vw - 1.5rem));
+  width: min(1160px, calc(100vw - 1.5rem));
   height: min(78vh, 680px);
   max-width: none;
   max-height: none;
@@ -97,7 +97,7 @@
 #panel-back-btn {
   position: fixed;
   top: calc(50% + min(78vh, 680px) / 2 + 10px);
-  left: calc(50% + min(940px, calc(100vw - 1.5rem)) / 2);
+  left: calc(50% + min(1160px, calc(100vw - 1.5rem)) / 2);
   transform: translateX(-100%);
   z-index: 25;
   background: rgba(20, 18, 14, 0.82);
@@ -342,21 +342,306 @@
   transform: translateX(5px);
 }
 
-/* ── 11. Project cards — glass ───────────────────────────────── */
-.panel-project-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(240, 184, 76, 0.13);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 14px;
-  transition: background 0.25s, border-color 0.25s, transform 0.3s, box-shadow 0.3s;
+/* ── 11. Projects grid — single column ──────────────────────── */
+.panel-projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 }
 
-.panel-project-card:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(240, 184, 76, 0.38);
-  transform: translateY(-5px);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+/* ── Project card — full width rectangle ────────────────────── */
+.panel-projects-grid .panel-project-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 220px !important;
+  background: rgba(28, 25, 19, 0.78) !important;
+  border: 1px solid rgba(240, 184, 76, 0.22) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-radius: 16px !important;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  counter-increment: none !important;
+}
+
+.panel-projects-grid .panel-project-card::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Gold shimmer sweep from left to right on hover */
+.panel-projects-grid .panel-project-card::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  clip-path: none !important;
+  rotate: none !important;
+  top: auto !important;
+  right: auto !important;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 26%,
+    rgba(240, 184, 76, 0.10) 42%,
+    rgba(255, 225, 130, 0.36) 50%,
+    rgba(240, 184, 76, 0.10) 58%,
+    transparent 74%,
+    transparent 100%
+  ) !important;
+  background-size: 260% 100% !important;
+  background-position: -130% 0 !important;
+  transition: background-position 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  pointer-events: none !important;
+  border-radius: inherit !important;
+  z-index: 10 !important;
+}
+
+.panel-projects-grid .panel-project-card:hover::after {
+  background-position: 230% 0 !important;
+}
+
+.panel-projects-grid .panel-project-card:hover {
+  border-color: rgba(240, 184, 76, 0.65) !important;
+  transform: translateY(-3px) !important;
+  box-shadow:
+    0 0 0 1px rgba(240, 184, 76, 0.18) inset,
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    0 0 45px rgba(240, 184, 76, 0.16) !important;
+}
+
+/* Left info body */
+.panel-project-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1.85rem;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.panel-project-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.panel-project-kicker {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.panel-project-title {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.25;
+  transition: color 0.25s;
+}
+
+.panel-project-card:hover .panel-project-title {
+  color: var(--accent);
+}
+
+.panel-project-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid rgba(240, 184, 76, 0.32);
+  border-radius: 6px;
+  padding: 0.22rem 0.65rem;
+  background: rgba(240, 184, 76, 0.06);
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  white-space: nowrap;
+  position: relative;
+  z-index: 5;
+}
+
+.panel-project-github:hover {
+  background: rgba(240, 184, 76, 0.16);
+  border-color: rgba(240, 184, 76, 0.8);
+  transform: translateY(-1px);
+}
+
+.panel-project-status-pill {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid rgba(240, 184, 76, 0.16);
+  border-radius: 6px;
+  padding: 0.20rem 0.55rem;
+  background: rgba(255, 255, 255, 0.03);
+  white-space: nowrap;
+}
+
+.panel-project-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 300;
+  color: #c4baab;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Bullets info inside the rectangle */
+.panel-project-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0.1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+
+.panel-project-bullets li {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.81rem;
+  font-weight: 300;
+  color: #9c9184;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.15rem;
+}
+
+.panel-project-bullets li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  top: 0.12rem;
+  font-size: 0.55rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.panel-project-bullets li strong {
+  color: #f2ebd9;
+  font-weight: 500;
+}
+
+/* Footer with tags and action */
+.panel-project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 0.35rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(240, 184, 76, 0.10);
+}
+
+.panel-project-tags {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.panel-project-tags .badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(240, 184, 76, 0.08);
+  border: 1px solid rgba(240, 184, 76, 0.22);
+  border-radius: 4px;
+  padding: 0.18rem 0.50rem;
+}
+
+.panel-project-arrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.panel-project-card:hover .panel-project-arrow {
+  transform: translateX(4px);
+  color: #ffd778;
+}
+
+/* Right image / visual square: exact same height as the rectangle */
+.panel-project-visual {
+  flex: 0 0 240px;
+  width: 240px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,
+      rgba(240, 184, 76, 0.08) 0%,
+      rgba(16, 14, 10, 0.94) 100%);
+  border-left: 1px solid rgba(240, 184, 76, 0.22);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  padding: 0;
+}
+
+.panel-project-visual img,
+.panel-project-visual svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.panel-project-card:hover .panel-project-visual img,
+.panel-project-card:hover .panel-project-visual svg {
+  transform: scale(1.04);
+}
+
+@media (max-width: 820px) {
+  .panel-projects-grid .panel-project-card {
+    flex-direction: column !important;
+  }
+  .panel-project-visual {
+    flex: 0 0 180px;
+    width: 100%;
+    height: 180px;
+    border-left: none;
+    border-top: 1px solid rgba(240, 184, 76, 0.22);
+  }
 }
 
 /* ── 12. Photo hex wrapper — keep glass vibe ─────────────────── */
@@ -450,7 +735,7 @@
 
   #panel-back-btn {
     top: calc(50% + (100dvh - 3.5rem) / 2 + 8px);
-    left: calc(50% + min(720px, calc(100vw - 2.5rem)) / 2);
+    left: calc(50% + min(1160px, calc(100vw - 2.5rem)) / 2);
     transform: translateX(-100%);
   }
 }

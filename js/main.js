@@ -10,6 +10,7 @@ var reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 function playIntro() {
   if (introPlayed || !window.gsap) return;
+  if (window.location.hash && window.location.hash !== '#menu' && window.location.hash !== '#') return;
   introPlayed = true;
 
   gsap.fromTo('.hero-wordmark',

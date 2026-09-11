@@ -56,10 +56,8 @@ button:focus-visible,a:focus-visible { outline:2px solid #ffe2a0; outline-offset
 .panel-exp-group::before { content:''; position:absolute; left:-8px; top:0; width:15px; height:18px; background:var(--accent); clip-path:var(--hex); }
 .panel-exp-card { background:#211e17; border-radius:0 24px 0 24px; }
 .panel-internship-grid { grid-template-columns:1fr; }
-.panel-projects-grid { counter-reset:project; }
-.panel-project-card { counter-increment:project; padding:30px; border-radius:0 35px 0 0; background:linear-gradient(145deg,#302718,#191713); }
-.panel-project-card::before { content:'0' counter(project) ' / IN THE WORKSHOP'; display:block; color:var(--accent); font:10px 'Space Grotesk',sans-serif; letter-spacing:.18em; margin-bottom:65px; }
-.panel-project-title { font-size:25px; }
+.panel-projects-grid { }
+/* .panel-project-card styles moved to panels-glass.css */
 .panel-pub-card { max-width:750px; padding:40px; border:1px solid #b9924e; background:linear-gradient(120deg,#332919,#1c1912); box-shadow:8px 8px 0 #f0b84c12; }
 .panel-pub-badge { clip-path:var(--hex); width:88px; height:100px; display:grid; place-items:center; padding:0; }
 .panel-pub-title { font-size:30px; }
@@ -145,13 +143,7 @@ button:focus-visible,a:focus-visible { outline:2px solid #ffe2a0; outline-offset
 .panel-exp-bullets { gap:10px; }
 .panel-exp-bullets li { font-size:14px; line-height:1.8; }
 .panel-exp-featured { background:linear-gradient(110deg,#3a2d18,#201c14); }
-.panel-project-card { min-height:340px; display:flex; flex-direction:column; transition:transform .35s,border-color .35s,box-shadow .35s; }
-.panel-project-card:hover { transform:translateY(-6px); box-shadow:0 20px 45px #0005; }
-.panel-project-card::after { content:''; position:absolute; right:24px; top:35px; width:65px; height:75px; clip-path:var(--hex); background:repeating-linear-gradient(0deg,#f0b84c35 0 1px,transparent 1px 9px); rotate:15deg; transition:rotate .6s; }
-.panel-project-card:hover::after { rotate:45deg; }
-.panel-project-tags { margin-top:auto; padding-top:24px; }
-.panel-project-desc { line-height:1.8; }
-.panel-project-card:nth-child(2) { border-style:dashed; background:#1d1b15; }
+/* Obsolete .panel-project-card rules neutralized — now managed in panels-glass.css */
 .panel-pub-card { max-width:850px; padding:48px; position:relative; overflow:hidden; }
 .panel-pub-card::after { content:'RESEARCH / 01'; position:absolute; right:28px; top:32px; writing-mode:vertical-rl; letter-spacing:.25em; font-size:10px; color:#d1ad6d; }
 .panel-pub-badge { margin-bottom:28px; background:linear-gradient(135deg,#ffe5a6,#c49031); }

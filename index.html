@@ -353,25 +353,63 @@
       <h2 class="panel-title">Projects</h2>
       <p class="section-deck">Ideas taking flight.</p>
       <div class="panel-projects-grid">
-        <div class="panel-project-card">
-          <div class="panel-project-accent"></div>
-          <h3 class="panel-project-title">AI Data Analyst</h3>
-          <p class="panel-project-desc">An intelligent data analysis platform that uses AI to generate insights from
-            datasets automatically.</p>
-          <div class="panel-project-tags">
-            <span class="badge">Python</span>
-            <span class="badge">AI</span>
-            <span class="badge">Data Analytics</span>
+
+        <!-- ── Visiq: Autonomous AI Data Analyst Agent ─────────── -->
+        <div class="panel-project-card"
+          id="project-card-visiq"
+          role="link"
+          tabindex="0"
+          onclick="window.location.href='project_descrip/visiq.html'"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='project_descrip/visiq.html';}"
+          aria-label="Open Visiq AI Data Analyst Agent case study">
+          <div class="panel-project-body">
+            <div class="panel-project-topline">
+              <span class="panel-project-kicker">01 / FEATURED PROJECT &middot; AI AGENT PLATFORM</span>
+              <a class="panel-project-github"
+                href="https://github.com/ralphrowel/AI_Data_Analyst_Agent"
+                target="_blank"
+                rel="noopener"
+                onclick="event.stopPropagation()"
+                title="View on GitHub">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z"/>
+                </svg>
+                GitHub ↗
+              </a>
+            </div>
+
+            <h3 class="panel-project-title">Visiq &mdash; Autonomous AI Data Analyst Agent</h3>
+            
+            <p class="panel-project-tagline">A full-stack autonomous AI platform that converts conversational natural language into deterministic Python data analysis, statistical Plotly visualizations, and verifiable business intelligence without numerical hallucinations.</p>
+
+            <ul class="panel-project-bullets">
+              <li><strong>Zero Numerical Hallucination:</strong> Decouples intent from execution via a deterministic Python pandas sandbox rather than generative predictions.</li>
+              <li><strong>Hybrid Intent Routing:</strong> Automatically classifies queries into structured (pandas execution), RAG (TF-IDF semantic retrieval), or hybrid multi-step reasoning.</li>
+              <li><strong>Enterprise Security &amp; Token Quota Guard:</strong> Enforces 50,000 daily token limits per client with atomic database counters, combined with Supabase RS256 JWKS JWT authentication.</li>
+              <li><strong>Copy-on-Write (COW) Multi-Tenancy:</strong> In-browser dataset mutator dynamically branches into private storage vaults to protect baseline datasets.</li>
+              <li><strong>Sub-800ms Median Latency:</strong> Ultra-fast inference with Groq LLM acceleration and Google Gemini 2.5 Flash with theme-reactive Plotly charts.</li>
+            </ul>
+
+            <div class="panel-project-footer">
+              <div class="panel-project-tags">
+                <span class="badge">FastAPI</span>
+                <span class="badge">React 18</span>
+                <span class="badge">Tailwind v4</span>
+                <span class="badge">Plotly.js</span>
+                <span class="badge">SQLAlchemy 2.0</span>
+                <span class="badge">Supabase Auth</span>
+                <span class="badge">Groq</span>
+                <span class="badge">Gemini</span>
+                <span class="badge">Python 3.14</span>
+              </div>
+              <span class="panel-project-arrow">Full Case Study &rarr;</span>
+            </div>
+          </div>
+          <div class="panel-project-visual">
+            <img src="assets/visiq-card-thumb.svg" alt="Visiq AI Data Analyst Agent Architecture and Workflow preview">
           </div>
         </div>
-        <div class="panel-project-card">
-          <div class="panel-project-accent"></div>
-          <h3 class="panel-project-title">More coming soon</h3>
-          <p class="panel-project-desc">Projects are actively being built at Arko. Stay tuned.</p>
-          <div class="panel-project-tags">
-            <span class="badge">In Progress</span>
-          </div>
-        </div>
+
       </div>
     </section>
   </template>
