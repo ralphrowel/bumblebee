@@ -137,45 +137,46 @@
     <p class="menu-footnote">BUILT WITH PURPOSE. &nbsp; WIRED TO EXPLORE.</p>
     <!-- Centre decorative hex -->
     <div class="hex-node hex-centre" data-hex="centre" aria-hidden="true">
-      <svg class="hex-bee-icon" viewBox="0 0 40 46" fill="none" aria-hidden="true">
-        <polygon points="20,2 38,12 38,34 20,44 2,34 2,12" stroke="#F0B84C" stroke-width="1.5" fill="none" />
-        <text x="20" y="29" text-anchor="middle" font-size="18" fill="#F0B84C">🐝</text>
-      </svg>
+      <svg class="hex-bee-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M29 27C9 5 1 29 25 34M35 27C55 5 63 29 39 34"/>
+        <path d="M23 32c0-15 18-15 18 0v8c0 8-9 15-9 15s-9-7-9-15ZM25 34h14M24 41h16M28 48h8M28 21l-5-7M36 21l5-7"/>
+        <circle cx="23" cy="13" r="1"/><circle cx="41" cy="13" r="1"/>
+      </svg><span class="hex-centre-label">THE HIVE</span>
     </div>
 
     <!-- Ring hexes -->
     <button class="hex-node hex-ring" id="hex-about" data-section="about" aria-label="About Me">
-      <span class="hex-icon" aria-hidden="true">👤</span>
+      <span class="hex-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="16" cy="11" r="5"/><path d="M6 27v-2a10 10 0 0 1 20 0v2"/></svg></span>
       <span class="hex-label">About Me</span><span class="hex-number">01 / EXPLORE</span>
       <span class="hex-glow" aria-hidden="true"></span>
     </button>
 
     <button class="hex-node hex-ring" id="hex-skills" data-section="skills" aria-label="Skills">
-      <span class="hex-icon" aria-hidden="true">⚡</span>
+      <span class="hex-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m10 9-7 7 7 7m12-14 7 7-7 7M19 5l-6 22"/></svg></span>
       <span class="hex-label">Skills</span><span class="hex-number">02 / EXPLORE</span>
       <span class="hex-glow" aria-hidden="true"></span>
     </button>
 
     <button class="hex-node hex-ring" id="hex-experience" data-section="experience" aria-label="Experience">
-      <span class="hex-icon" aria-hidden="true">🏢</span>
+      <span class="hex-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="4" y="10" width="24" height="18" rx="3"/><path d="M11 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4M4 17a28 28 0 0 0 24 0M16 16v5"/></svg></span>
       <span class="hex-label">Experience</span><span class="hex-number">03 / EXPLORE</span>
       <span class="hex-glow" aria-hidden="true"></span>
     </button>
 
     <button class="hex-node hex-ring" id="hex-projects" data-section="projects" aria-label="Projects">
-      <span class="hex-icon" aria-hidden="true">🚀</span>
+      <span class="hex-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m16 3 12 7v13l-12 7-12-7V10Z M4 10l12 7 12-7M16 17v13M10 6l12 7"/></svg></span>
       <span class="hex-label">Projects</span><span class="hex-number">04 / EXPLORE</span>
       <span class="hex-glow" aria-hidden="true"></span>
     </button>
 
     <button class="hex-node hex-ring" id="hex-publications" data-section="publications" aria-label="Publications">
-      <span class="hex-icon" aria-hidden="true">📄</span>
+      <span class="hex-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M7 3h12l7 7v19H7ZM19 3v8h7M11 16h11M11 21h11M11 26h6"/></svg></span>
       <span class="hex-label">Publications</span><span class="hex-number">05 / EXPLORE</span>
       <span class="hex-glow" aria-hidden="true"></span>
     </button>
 
     <button class="hex-node hex-ring" id="hex-contact" data-section="contact" aria-label="Contact">
-      <span class="hex-icon" aria-hidden="true">✉️</span>
+      <span class="hex-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="3" y="7" width="26" height="19" rx="3"/><path d="m4 9 12 10L28 9"/></svg></span>
       <span class="hex-label">Contact</span><span class="hex-number">06 / EXPLORE</span>
       <span class="hex-glow" aria-hidden="true"></span>
     </button>
@@ -407,6 +408,59 @@
           </div>
           <div class="panel-project-visual">
             <img src="assets/visiq-card-thumb.svg" alt="Visiq AI Data Analyst Agent Architecture and Workflow preview">
+          </div>
+        </div>
+
+        <!-- ── QR Studio: Modern QR Code Generator ─────────────── -->
+        <div class="panel-project-card"
+          id="project-card-qr-studio"
+          role="link"
+          tabindex="0"
+          onclick="window.location.href='project_descrip/qr-studio.html'"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='project_descrip/qr-studio.html';}"
+          aria-label="Open QR Studio modern QR code generator case study">
+          <div class="panel-project-body">
+            <div class="panel-project-topline">
+              <span class="panel-project-kicker">02 / FEATURED PROJECT &middot; DESKTOP UTILITY</span>
+              <a class="panel-project-github"
+                href="https://github.com/ralphrowel/python-qr-generator"
+                target="_blank"
+                rel="noopener"
+                onclick="event.stopPropagation()"
+                title="View on GitHub">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z"/>
+                </svg>
+                GitHub ↗
+              </a>
+            </div>
+
+            <h3 class="panel-project-title">QR Studio &mdash; Modern QR Code Generator</h3>
+
+            <p class="panel-project-tagline">A modern Python desktop application for generating, styling, previewing, and exporting professional QR codes with branded visuals and purpose-built content forms.</p>
+
+            <ul class="panel-project-bullets">
+              <li><strong>Six Content Types:</strong> Dedicated URL, WiFi, vCard, email, SMS, and plain-text workflows with standards-ready payload formatting.</li>
+              <li><strong>Live Debounced Preview:</strong> Re-renders as settings change while keeping the Tkinter interface responsive.</li>
+              <li><strong>Logo-Safe Customization:</strong> Supports custom colors, captions, four export sizes, and centered branding with automatic error-correction upgrades.</li>
+              <li><strong>Restorable Session History:</strong> Visual history cards preserve every form field and design setting for one-click restoration.</li>
+              <li><strong>Tested Desktop Workflow:</strong> Eleven automated tests cover encoding, image output, UI behavior, history, and state roundtrips.</li>
+            </ul>
+
+            <div class="panel-project-footer">
+              <div class="panel-project-tags">
+                <span class="badge">Python 3.10+</span>
+                <span class="badge">Tkinter</span>
+                <span class="badge">Pillow</span>
+                <span class="badge">qrcode</span>
+                <span class="badge">pywin32</span>
+                <span class="badge">unittest</span>
+              </div>
+              <span class="panel-project-arrow">Full Case Study &rarr;</span>
+            </div>
+          </div>
+          <div class="panel-project-visual">
+            <img src="assets/qr-studio-card-thumb.svg" alt="QR Studio application and QR code workflow preview">
           </div>
         </div>
 

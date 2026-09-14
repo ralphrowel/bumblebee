@@ -89,5 +89,5 @@
   </g>
 
   <!-- Bottom Label -->
-  <text x="120" y="218" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="600" fill="#9c9184" letter-spacing="1.8" text-anchor="middle">WORKFLOW &bull; ARCHITECTURE</text>
+  <text x="120" y="218" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="600" fill="#9c9184" letter-spacing="1.8" text-anchor="middle">WORKFLOW &#8226; ARCHITECTURE</text>
 </svg>

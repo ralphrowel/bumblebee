@@ -165,3 +165,26 @@ button:focus-visible,a:focus-visible { outline:2px solid #ffe2a0; outline-offset
 @keyframes cell-arrive { from { opacity:0; scale:.8; } to { opacity:1; scale:1; } }
 @media(max-width:600px) { .skill-category { padding:20px 14px 35px; } .panel-exp-card { padding:22px; } .panel-pub-card { padding:28px; } .panel-cert-btn { width:calc((100% - 16px)/2); } .section-next { margin-top:40px; } }
 @media(prefers-reduced-motion:reduce) { .reveal-ready { opacity:1; transform:none; } .skill-category.revealed .badge { animation:none; } }
+/* Precision linework for the hive navigation. */
+#hex-menu .hex-ring { background:linear-gradient(145deg,#d4a956,#715424 65%,#c29442); gap:8px; }
+#hex-menu .hex-ring::after { background:linear-gradient(145deg,#302a1d,#181712 75%); transition:background .3s; }
+#hex-menu .hex-icon { display:grid; place-items:center; width:36px; height:36px; color:#edc87e; transition:transform .3s,color .3s; }
+#hex-menu .hex-icon svg { display:block; width:32px; height:32px; }
+#hex-menu .hex-label { font-weight:500; letter-spacing:.035em; }
+#hex-menu .hex-number { font-size:7px; letter-spacing:.18em; color:#b19a71; }
+#hex-menu .hex-ring:hover::after, #hex-menu .hex-ring:focus-visible::after { background:#edc16b; }
+#hex-menu .hex-ring:hover .hex-icon, #hex-menu .hex-ring:focus-visible .hex-icon { color:#251e12; filter:none; transform:translateY(-3px); }
+#hex-menu .hex-ring:hover .hex-label, #hex-menu .hex-ring:focus-visible .hex-label { color:#251e12; }
+#hex-menu .hex-ring:hover .hex-number, #hex-menu .hex-ring:focus-visible .hex-number { color:#594323; }
+#hex-menu .hex-centre { background:#ffe4a3; gap:4px; }
+#hex-menu .hex-centre::after { background:linear-gradient(145deg,#ffdfa0,#d8a445); }
+#hex-menu .hex-bee-icon { width:56px; height:56px; color:#302310; }
+.hex-centre-label { position:relative; z-index:1; font:600 8px/1.5 'Space Grotesk',sans-serif; letter-spacing:.2em; color:#473217; }
+@media(max-width:600px) {
+ #hex-menu .hex-ring { gap:5px; }
+ #hex-menu .hex-icon { width:27px; height:27px; }
+ #hex-menu .hex-icon svg { width:25px; height:25px; }
+ #hex-menu .hex-number { font-size:6px; letter-spacing:.1em; }
+ #hex-menu .hex-bee-icon { width:40px; height:40px; }
+ .hex-centre-label { font-size:6px; }
+}

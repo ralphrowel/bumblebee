@@ -686,14 +686,17 @@
 
 /* ── 15. Section-next button — glass ────────────────────────── */
 .section-next {
-  border-color: rgba(240, 184, 76, 0.22);
+  margin: 3rem 0 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(240, 184, 76, 0.22);
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 0 0 12px 12px;
-  transition: background 0.25s;
+  border-radius: 12px;
+  transition: background 0.25s, border-color 0.25s;
 }
 
 .section-next:hover {
   background: rgba(240, 184, 76, 0.05);
+  border-color: rgba(240, 184, 76, 0.38);
 }
 
 /* ── 16. Click-outside: overlay is the hit target; box stops propagation */
@@ -717,6 +720,12 @@
 
   #panel-content::before {
     margin: -2rem -1.5rem 1.5rem;
+  }
+
+  .section-next {
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem 1.125rem;
   }
 
   /* On mobile, back btn shifts below the box centered */

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="560" viewBox="0 0 720 560" role="img" aria-labelledby="title desc">
+  <title id="title">QR Studio application preview</title>
+  <desc id="desc">Dark desktop interface with QR customization controls, a generated QR code, and recent history.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#070a12"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1e293b" stop-opacity=".96"/>
+      <stop offset="1" stop-color="#111827" stop-opacity=".96"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#4f46e5"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity=".5"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="720" height="560" fill="url(#bg)"/>
+  <circle cx="620" cy="80" r="120" fill="#4f46e5" opacity=".15" filter="url(#glow)"/>
+  <circle cx="80" cy="500" r="150" fill="#06b6d4" opacity=".08" filter="url(#glow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="38" y="40" width="644" height="480" rx="22" fill="#0b0f19" stroke="#334155" stroke-width="2"/>
+    <path d="M38 92h644" stroke="#334155"/>
+    <circle cx="68" cy="66" r="6" fill="#f87171"/><circle cx="90" cy="66" r="6" fill="#fbbf24"/><circle cx="112" cy="66" r="6" fill="#34d399"/>
+    <rect x="144" y="57" width="130" height="19" rx="9.5" fill="#1e293b"/>
+    <text x="159" y="71" fill="#c7d2fe" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.3">QR STUDIO</text>
+
+    <rect x="58" y="112" width="184" height="388" rx="15" fill="url(#panel)" stroke="#334155"/>
+    <text x="78" y="143" fill="#f8fafc" font-family="Arial, sans-serif" font-size="13" font-weight="700">Create your code</text>
+    <text x="78" y="166" fill="#64748b" font-family="Arial, sans-serif" font-size="9" letter-spacing="1">CONTENT TYPE</text>
+    <rect x="78" y="178" width="144" height="31" rx="7" fill="#312e81" stroke="#6366f1"/>
+    <text x="91" y="198" fill="#e0e7ff" font-family="Arial, sans-serif" font-size="11">Website URL</text>
+    <text x="78" y="232" fill="#64748b" font-family="Arial, sans-serif" font-size="9" letter-spacing="1">DESTINATION</text>
+    <rect x="78" y="243" width="144" height="35" rx="7" fill="#0f172a" stroke="#334155"/>
+    <text x="90" y="265" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9">https://your-link.com</text>
+    <text x="78" y="302" fill="#64748b" font-family="Arial, sans-serif" font-size="9" letter-spacing="1">COLOR PRESETS</text>
+    <g transform="translate(78 315)">
+      <circle cx="10" cy="10" r="10" fill="#0f172a" stroke="#64748b"/><circle cx="38" cy="10" r="10" fill="#4338ca"/><circle cx="66" cy="10" r="10" fill="#065f46"/><circle cx="94" cy="10" r="10" fill="#06b6d4"/><circle cx="122" cy="10" r="10" fill="#9f1239"/>
+    </g>
+    <text x="78" y="362" fill="#64748b" font-family="Arial, sans-serif" font-size="9" letter-spacing="1">EXPORT SIZE</text>
+    <g font-family="Arial, sans-serif" font-size="9" text-anchor="middle">
+      <rect x="78" y="374" width="31" height="27" rx="6" fill="#0f172a" stroke="#334155"/><text x="93.5" y="391" fill="#94a3b8">S</text>
+      <rect x="115" y="374" width="31" height="27" rx="6" fill="#4f46e5"/><text x="130.5" y="391" fill="#fff">M</text>
+      <rect x="152" y="374" width="31" height="27" rx="6" fill="#0f172a" stroke="#334155"/><text x="167.5" y="391" fill="#94a3b8">L</text>
+      <rect x="189" y="374" width="33" height="27" rx="6" fill="#0f172a" stroke="#334155"/><text x="205.5" y="391" fill="#94a3b8">XL</text>
+    </g>
+    <rect x="78" y="442" width="144" height="38" rx="9" fill="url(#accent)"/>
+    <text x="150" y="466" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="700">GENERATE QR</text>
+
+    <rect x="262" y="112" width="262" height="266" rx="15" fill="#f8fafc"/>
+    <g fill="#312e81">
+      <path d="M288 138h68v68h-68zm12 12v44h44v-44zm10 10h24v24h-24zM430 138h68v68h-68zm12 12v44h44v-44zm10 10h24v24h-24zM288 284h68v68h-68zm12 12v44h44v-44zm10 10h24v24h-24z" fill-rule="evenodd"/>
+      <rect x="376" y="138" width="12" height="12"/><rect x="398" y="138" width="12" height="34"/><rect x="376" y="160" width="12" height="24"/><rect x="388" y="184" width="24" height="12"/>
+      <rect x="366" y="216" width="12" height="12"/><rect x="388" y="206" width="12" height="34"/><rect x="410" y="218" width="34" height="12"/><rect x="454" y="218" width="12" height="34"/><rect x="476" y="216" width="22" height="12"/>
+      <rect x="366" y="250" width="34" height="12"/><rect x="410" y="250" width="12" height="34"/><rect x="432" y="262" width="34" height="12"/><rect x="476" y="250" width="22" height="12"/>
+      <rect x="366" y="294" width="12" height="34"/><rect x="388" y="284" width="34" height="12"/><rect x="432" y="296" width="12" height="34"/><rect x="454" y="284" width="44" height="12"/><rect x="476" y="306" width="22" height="34"/>
+      <rect x="366" y="340" width="34" height="12"/><rect x="410" y="328" width="12" height="24"/><rect x="432" y="340" width="34" height="12"/>
+    </g>
+    <rect x="354" y="382" width="78" height="22" rx="11" fill="#312e81"/>
+    <text x="393" y="397" text-anchor="middle" fill="#e0e7ff" font-family="Arial, sans-serif" font-size="9" font-weight="700">LIVE PREVIEW</text>
+
+    <rect x="544" y="112" width="118" height="388" rx="15" fill="url(#panel)" stroke="#334155"/>
+    <text x="561" y="143" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="700">History</text>
+    <g font-family="Arial, sans-serif">
+      <rect x="558" y="164" width="90" height="87" rx="10" fill="#0f172a" stroke="#334155"/>
+      <rect x="570" y="177" width="30" height="30" rx="4" fill="#eef2ff"/><path d="M576 183h8v8h-8zm13 0h5v5h-5zm-13 13h5v5h-5zm9-4h9v9h-9z" fill="#4338ca"/>
+      <text x="570" y="223" fill="#cbd5e1" font-size="8" font-weight="700">Portfolio link</text><text x="570" y="238" fill="#64748b" font-size="7">300px · M</text>
+      <rect x="558" y="263" width="90" height="87" rx="10" fill="#0f172a" stroke="#334155"/>
+      <rect x="570" y="276" width="30" height="30" rx="4" fill="#ecfdf5"/><path d="M576 282h8v8h-8zm13 0h5v5h-5zm-13 13h5v5h-5zm9-4h9v9h-9z" fill="#065f46"/>
+      <text x="570" y="322" fill="#cbd5e1" font-size="8" font-weight="700">Studio WiFi</text><text x="570" y="337" fill="#64748b" font-size="7">450px · H</text>
+      <rect x="558" y="362" width="90" height="87" rx="10" fill="#0f172a" stroke="#334155"/>
+      <rect x="570" y="375" width="30" height="30" rx="4" fill="#fff1f2"/><path d="M576 381h8v8h-8zm13 0h5v5h-5zm-13 13h5v5h-5zm9-4h9v9h-9z" fill="#9f1239"/>
+      <text x="570" y="421" fill="#cbd5e1" font-size="8" font-weight="700">Contact card</text><text x="570" y="436" fill="#64748b" font-size="7">600px · H</text>
+    </g>
+  </g>
+</svg>
